@@ -1,1 +1,1 @@
-# ferengi-banking-simulator
+# Ferengi Banking Simulator
