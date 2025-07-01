@@ -7,21 +7,17 @@ public class UserManager {
     public UserManager() {
         users = new HashMap<>();
 
-        User testUser1 = new User("Chris", "Ritter", "chriswritter", "wasteland2");
-        User testUser2 = new User("John", "Smith", "johnjsmith", "password123");
-        User testUser3 = new User("Abraham", "Lincoln", "abelincoln", "abolish1");
+        User testUser1 = new User("Quark", "Keldar", "QuarkRules", "profit");
 
-        users.put("chriswritter", testUser1);
-        users.put("johnjsmith", testUser2);
-        users.put("abelincoln", testUser3);
+        users.put("QuarkRules", testUser1);
     }
 
     public void registerNewUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your first name: ");
-        String firstName = scanner.nextLine();
-        System.out.print("Enter your last name: ");
-        String lastName = scanner.nextLine();
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Father's name: ");
+        String fathersName = scanner.nextLine();
 
         String username;
         // The do-while loop will keep asking for a new username if the user enters one that already exists.
@@ -36,7 +32,7 @@ public class UserManager {
         System.out.print("Choose a secure password: ");
         String password = scanner.nextLine();
 
-        User newUser = new User(firstName, lastName, username, password);
+        User newUser = new User(name, fathersName, username, password);
         users.put(username, newUser);
         System.out.println("New user created!");
     }

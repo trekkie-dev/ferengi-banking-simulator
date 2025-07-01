@@ -32,11 +32,9 @@ public class BankUI {
     }
 
     static void accountOverview(User loggedInUser) {
-        
-        String accountNumber = loggedInUser.accountNumber;
         System.out.println("                                    ACCOUNT OVERVIEW                                   ");
         System.out.println("=======================================================================================");
-        System.out.println("Welcome back, " + loggedInUser.firstName + "!");
+        System.out.println("Welcome back, " + loggedInUser.getFerengiFullName() + "!");
         System.out.println("Account number: " + loggedInUser.accountNumber);
         System.out.println("---------------------------------------------------------------------------------------");
         System.out.println("          1. Show Balance     2. Deposit      3. Withdrawal       4. Log Out"           );
@@ -45,19 +43,19 @@ public class BankUI {
         int accountChoice = scanner.nextInt();
         switch (accountChoice) {
             case 1:
-                BankAccount.displayAccountBalance();
+                BankOperations.displayAccountBalance();
                 System.out.println("---------------------------------------------------------------------------------------");
                 accountOverview(loggedInUser);
                 break;
             case 2:
                 depositIntoAccount();
-                BankAccount.displayAccountBalance();
+                BankOperations.displayAccountBalance();
                 System.out.println("---------------------------------------------------------------------------------------");
                 accountOverview(loggedInUser);
                 break;
             case 3:
                 withdrawFromAccount();
-                BankAccount.displayAccountBalance();
+                BankOperations.displayAccountBalance();
                 System.out.println("---------------------------------------------------------------------------------------");
                 accountOverview(loggedInUser);
                 break;
@@ -73,14 +71,14 @@ public class BankUI {
         System.out.println(Colors.GREEN_BACKGROUND + "                                     DEPOSIT FUNDS                                     " + Colors.RESET);
         System.out.print("How much would you like to deposit? ");
         int depositAmount = scanner.nextInt();
-        BankAccount.depositMoney(depositAmount);
+        BankOperations.depositMoney(depositAmount);
     }
 
     static void withdrawFromAccount() {
         System.out.println(Colors.GREEN_BACKGROUND + "                                      WITHDRAW FUNDS                                   " + Colors.RESET);
         System.out.print("How much would you like to withdraw? ");
         int withdrawAmount = scanner.nextInt();
-        BankAccount.withdrawMoney(withdrawAmount);
+        BankOperations.withdrawLatinum(withdrawAmount);
     }
 
     static void registerAccount() {
